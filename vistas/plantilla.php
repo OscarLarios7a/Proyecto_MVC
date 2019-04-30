@@ -8,6 +8,14 @@
 </head>
 <body>
 
+<?php require_once "./controladores/vistasControlador.php";
+	$vt=new vistasControlador();
+	$vistasR=$vt->obtener_vistas_controlador();
+
+	if($vistasR=="login"):
+		require_once "./vistas/contenidos/login-view.php";
+	else:
+ ?>
 	<!-- SideBar -->
 	<?php include "vistas/modulos/navlateral.php";?>
 	<!-- Content page-->
@@ -15,9 +23,11 @@
 		<!-- NavBar -->
 		<?php include "vistas/modulos/navbar.php";?>
 		<!-- Content page -->
-
+		<?php  require_once $vistasR; ?>
 	</section>
+		<?php endif; ?>
 		<!--====== Scripts -->
 		<?php include "vistas/modulos/script.php";?>
+
 </body>
 </html>
